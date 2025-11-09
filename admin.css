@@ -1,0 +1,205 @@
+body {
+    font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Helvetica, Arial, sans-serif;
+    background-color: #f4f7f6;
+    margin: 0;
+    padding: 20px;
+    line-height: 1.6;
+}
+
+.container {
+    max-width: 800px;
+    margin: 0 auto;
+    background-color: #ffffff;
+    padding: 30px;
+    border-radius: 10px;
+    box-shadow: 0 4px 15px rgba(0, 0, 0, 0.05);
+}
+
+h1, h2 {
+    color: #333;
+    border-bottom: 2px solid #eee;
+    padding-bottom: 10px;
+}
+
+h1 {
+    text-align: center;
+    color: #0056b3;
+}
+
+.form-section, .preview-section, .save-section {
+    margin-bottom: 30px;
+    border: 1px solid #ddd;
+    padding: 20px;
+    border-radius: 8px;
+    background-color: #fafafa;
+}
+
+label {
+    display: block;
+    margin-top: 15px;
+    margin-bottom: 5px;
+    font-weight: bold;
+    color: #555;
+}
+
+.correct-answer-label {
+    color: #d9534f;
+}
+
+input[type="text"], textarea {
+    width: 100%;
+    padding: 12px;
+    border: 1px solid #ccc;
+    border-radius: 5px;
+    box-sizing: border-box; /* Important */
+    font-size: 1em;
+}
+
+textarea {
+    resize: vertical;
+}
+
+button {
+    background-color: #007bff;
+    color: white;
+    padding: 12px 20px;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+    font-size: 1.1em;
+    font-weight: bold;
+    margin-top: 20px;
+    transition: background-color 0.3s ease;
+}
+
+button:hover {
+    background-color: #0056b3;
+}
+
+#add-question-btn {
+    background-color: #28a745;
+}
+
+#add-question-btn:hover {
+    background-color: #218838;
+}
+
+#save-quiz-btn {
+    background-color: #dc3545;
+    width: 100%;
+    font-size: 1.3em;
+    padding: 15px;
+}
+
+#save-quiz-btn:hover {
+    background-color: #c82333;
+}
+
+/* Status Message Styles */
+#status-message {
+    padding: 15px;
+    margin-bottom: 20px;
+    border-radius: 5px;
+    font-weight: bold;
+    text-align: center;
+    display: block; /* সব সময় জায়গা নেবে */
+    min-height: 1.5em; /* একটি নির্দিষ্ট উচ্চতা থাকবে */
+    transition: background-color 0.3s ease, color 0.3s ease;
+}
+
+#status-message.success {
+    background-color: #d4edda;
+    color: #155724;
+}
+
+#status-message.error {
+    background-color: #f8d7da;
+    color: #721c24;
+}
+
+/* Bulk Add Section Styles */
+#bulk-add-form {
+    background-color: #fffbef;
+    border-color: #ffeeba;
+}
+#bulk-add-form p {
+    font-size: 0.9em;
+    line-height: 1.5;
+    background-color: #f8f9fa;
+    padding: 10px;
+    border-radius: 5px;
+    border: 1px solid #e0e0e0;
+}
+#process-bulk-btn {
+    background-color: #17a2b8;
+}
+#process-bulk-btn:hover {
+    background-color: #117a8b;
+}
+
+/* --- নতুন সেকশন স্টাইল --- */
+.input-group {
+    display: flex;
+    gap: 10px;
+    margin-bottom: 20px;
+    align-items: center; /* ইনপুট এবং বাটনকে এক লাইনে রাখতে */
+}
+.input-group input {
+    flex-grow: 1;
+    margin-top: 5px; /* লেবেলের সাথে সামঞ্জস্য রাখতে */
+}
+.inline-btn {
+    margin-top: 5px; /* ইনপুটের সাথে এক লাইনে রাখতে */
+    padding: 12px 15px; /* ইনপুটের সমান উচ্চতা */
+    font-size: 1em;
+    flex-shrink: 0;
+}
+
+#section-list {
+    list-style-type: none;
+    padding-left: 0;
+    margin-top: 10px;
+}
+#section-list li {
+    background-color: #e6f7ff;
+    border: 1px solid #b3e0ff;
+    padding: 10px;
+    border-radius: 5px;
+    margin-bottom: 5px;
+    font-weight: bold;
+    color: #0056b3;
+}
+
+select {
+    width: 100%;
+    padding: 12px;
+    border: 1px solid #ccc;
+    border-radius: 5px;
+    box-sizing: border-box;
+    font-size: 1em;
+    background-color: #fff;
+}
+select:disabled {
+    background-color: #f4f7f6;
+    color: #999;
+}
+
+hr {
+    border: none;
+    border-top: 1px solid #eee;
+    margin: 25px 0;
+}
+
+.preview-section-item {
+    background-color: #f9f9f9;
+    padding: 15px;
+    margin-bottom: 10px;
+    border: 1px solid #eee;
+    border-radius: 5px;
+}
+.preview-section-item strong {
+    color: #0056b3;
+    display: block;
+    margin-bottom: 5px;
+    font-size: 1.1em;
+}

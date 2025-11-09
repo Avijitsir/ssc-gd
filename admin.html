@@ -1,0 +1,100 @@
+<!DOCTYPE html>
+<html lang="bn">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Quiz Admin Panel (Sections)</title>
+    <link rel="stylesheet" href="admin.css">
+</head>
+<body>
+
+    <div class="container">
+        <h1>Quiz Admin Panel (Sections)</h1>
+        <p>এখানে সেকশন তৈরি করুন এবং প্রতিটি সেকশনে প্রশ্ন যোগ করুন।</p>
+
+        <div id="status-message"></div>
+
+        <div class="form-section">
+            <h2>১. কুইজের বিবরণ</h2>
+            <label for="quiz-id-input">Quiz ID (ইংরাজিতে, কোনো স্পেস ছাড়া, যেমন: ssc_gd_mock_1)</label>
+            <input type="text" id="quiz-id-input" placeholder="ssc_gd_mock_1">
+
+            <label for="quiz-title-input">Quiz Title (এটি কুইজ অ্যাপে দেখাবে, যেমন: SSC GD Mock Test #1)</label>
+            <input type="text" id="quiz-title-input" placeholder="SSC GD Mock Test #1">
+        </div>
+
+        <div class="form-section">
+            <h2>২. সেকশন ম্যানেজমেন্ট</h2>
+            <label for="section-name-input">নতুন সেকশনের নাম (যেমন: Mathematics, Reasoning):</label>
+            <div class="input-group">
+                <input type="text" id="section-name-input" placeholder="Mathematics">
+                <button id="add-section-btn" class="inline-btn">Add Section</button>
+            </div>
+            <h3>তৈরি করা সেকশন (এই অর্ডারে দেখাবে):</h3>
+            <ul id="section-list">
+                </ul>
+        </div>
+
+        <div class="form-section" id="question-form">
+            <h2>৩. সেকশনে প্রশ্ন যোগ করুন (একটি করে)</h2>
+            <label for="section-select-dropdown">কোন সেকশনে প্রশ্ন যোগ করবেন?</label>
+            <select id="section-select-dropdown" disabled>
+                <option value="">আগে সেকশন তৈরি করুন</option>
+            </select>
+            
+            <hr>
+
+            <label for="question-text-input">প্রশ্ন (LaTeX-এর জন্য `\(...\)` বা `\[...\]`):</label>
+            <textarea id="question-text-input" rows="3" placeholder="প্রশ্নটি এখানে লিখুন..."></textarea>
+
+            <label for="option1-input">Option 1:</label>
+            <input type="text" id="option1-input" placeholder="অপশন ১">
+            <label for="option2-input">Option 2:</label>
+            <input type="text" id="option2-input" placeholder="অপশন ২">
+            <label for="option3-input">Option 3:</label>
+            <input type="text" id="option3-input" placeholder="অপশন ৩">
+            <label for="option4-input">Option 4:</label>
+            <input type="text" id="option4-input" placeholder="অপশন ৪">
+
+            <label for="answer-input" class="correct-answer-label">সঠিক উত্তর (হুবহু কপি করে দিন):</label>
+            <input type="text" id="answer-input" placeholder="সঠিক উত্তরটি এখানে পেস্ট করুন">
+
+            <button id="add-question-btn">প্রশ্নটি যোগ করুন</button>
+        </div>
+        
+        <div class="form-section" id="bulk-add-form">
+            <h2>৪. একসাথে অনেক প্রশ্ন যোগ করুন (Bulk Add)</h2>
+            <label for="bulk-section-select-dropdown">কোন সেকশনে প্রশ্নগুলি যোগ করবেন?</label>
+            <select id="bulk-section-select-dropdown" disabled>
+                <option value="">আগে সেকশন তৈরি করুন</option>
+            </select>
+            <hr>
+            <p>নিচের ফরম্যাট মেনে প্রশ্ন পেস্ট করুন (প্রতিটি প্রশ্ন ৬ লাইনের):</p>
+            <textarea id="bulk-input-textarea" rows="10" placeholder="প্রশ্ন?
+অপশন ১
+অপশন ২
+অপশন ৩
+অপশন ৪
+Answer: সঠিক উত্তর
+(একটি খালি লাইন)
+পরবর্তী প্রশ্ন..."></textarea>
+            <button id="process-bulk-btn">পেস্ট করা প্রশ্নগুলি যোগ করুন</button>
+        </div>
+
+        <div class="preview-section">
+            <h2 id="questions-list-header">৫. কুইজ প্রিভিউ (0 টি সেকশন)</h2>
+            <div id="quiz-preview-list"></div>
+        </div>
+
+        <div class="save-section">
+            <button id="save-quiz-btn">সম্পূর্ণ কুইজটি Firebase-এ সেভ করুন</button>
+        </div>
+
+    </div>
+
+    <script src="https://www.gstatic.com/firebasejs/8.6.8/firebase-app.js"></script>
+    <script src="https://www.gstatic.com/firebasejs/8.6.8/firebase-database.js"></script>
+    
+    <script src="admin.js"></script>
+</body>
+</html>
