@@ -1,0 +1,142 @@
+<!DOCTYPE html>
+<html lang="bn">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>General Knowledge For Police Exam</title>
+    <link rel="stylesheet" href="style.css">
+    
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/katex@0.16.10/dist/katex.min.css" integrity="sha384-KiWOvVjnN8qwKMtRX9CRHjNzaJsvPVecGqRWsmuKftkAGlVyINsuwMCGvlWKSQCt" crossorigin="anonymous">
+    <script defer src="https://cdn.jsdelivr.net/npm/katex@0.16.10/dist/katex.min.js" integrity="sha384-hIoVKrKImjTzVTLQTP2BBOkC1l4CsB6I+LTDEsBXuKWPJtpjAr/GnA/IeK6hVOs9" crossorigin="anonymous"></script>
+    <script defer src="https://cdn.jsdelivr.net/npm/katex@0.16.10/dist/contrib/auto-render.min.js" integrity="sha384-43gviWU0YVjaD5L1ABiA6PfZtvU/0sA/2uAIMhfrV8RxMYMftPNI3xgrGJMlIB" crossorigin="anonymous"></script>
+</head>
+<body>
+    <div class="quiz-container">
+
+        <div class="splash-screen active" id="splashScreen">
+            <div class="splash-logo-container">
+                <div class="outer-circle">
+                    <div class="inner-circle">
+                        <div class="logo-text">
+                            <span>Utkarsh</span>
+                            <span>Coaching</span>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <div class="name-input-screen" id="nameInputScreen">
+            <h1>WELCOME</h1>
+            <p>Enter Your Name</p>
+            <input type="text" id="userNameInput" placeholder="আপনার নাম" required>
+            <button class="button glow-on-hover" id="proceedToStartScreenButton">Start Quiz</button>
+            <button class="button" id="checkScoresButton">Check My Scores</button>
+            <div id="nameInputMessage" style="color: red; margin-top: 10px;"></div>
+        </div>
+
+        <div class="start-screen" id="startScreen">
+            <h1>কুইজ লোড হচ্ছে...</h1>
+            <div class="info-item">Total Question: <span id="totalQuestionsInfo">...</span></div>
+            <div class="info-item">Full Marks: <span id="fullMarksInfo">...</span></div>
+            <div class="info-item">Time: <span id="timeLimitInfo">...</span> মিনিট</div>
+            <button class="button" id="startButton">Start</button>
+        </div>
+
+        <div class="quiz-screen" id="quizScreen">
+            
+            <div class="quiz-header">
+                <h2 id="quizTitleHeader">Loading Quiz...</h2>
+                <div class="quiz-timer">
+                    <img src="https://img.icons8.com/ios-glyphs/30/000000/clock.png" alt="clock" width="20" height="20"/>
+                    Time Left: <span id="quizTimerText">--:--</span>
+                </div>
+                <button id="togglePaletteButton">Questions</button>
+            </div>
+
+            <div class="section-tabs" id="sectionTabsContainer">
+                </div>
+
+            <div class="quiz-body">
+                <div class="question-area">
+                    <div class="question-header-info">
+                        <h3>Question No. <span id="questionNumberDisplay">1</span></h3>
+                        <p>Marks: <span id="positiveMarkDisplay">+1.00</span> / <span id="negativeMarkDisplay">-0.25</span></p>
+                    </div>
+
+                    <div class="question-text-box" id="questionTextBox"> 
+                        </div>
+                    
+                    <div class="options-container" id="optionsContainer">
+                        </div>
+                    
+                    <div class="quiz-navigation-controls">
+                        <button class="button nav-btn prev-btn" id="prevButton">Previous</button>
+                        <button class="button nav-btn clear-btn" id="clearButton">Clear Response</button>
+                        <button class="button nav-btn mark-btn" id="markReviewButton">Mark & Next</button>
+                        <button class="button nav-btn save-btn" id="saveNextButton">Save & Next</button>
+                    </div>
+                </div>
+
+                <div class="palette-area" id="paletteArea">
+                    <div class="palette-header">
+                        <div class="user-info">
+                            <img src="https://img.icons8.com/ios-filled/50/000000/user-male-circle.png" alt="user" width="40"/>
+                            <span id="paletteUserName">Guest</span>
+                        </div>
+                        <button id="closePaletteButton">×</button>
+                    </div>
+                    
+                    <h3 id="paletteSectionTitle">All Questions</h3> <div class="palette-legend">
+                        <div><span class="legend-box answered"></span> Answered</div>
+                        <div><span class="legend-box not-answered"></span> Not Answered</div>
+                        <div><span class="legend-box marked"></span> Marked</div>
+                        <div><span class="legend-box not-visited"></span> Not Visited</div>
+                    </div>
+
+                    <div class="question-palette" id="questionPalette">
+                        </div>
+
+                    <button class="button submit-btn-final" id="finalSubmitButton">Submit Quiz</button>
+                </div>
+            </div>
+        </div>
+
+        <div class="result-screen" id="resultScreen">
+            </div>
+    </div>
+
+    <div class="modal-overlay" id="submitReviewModal">
+        <div class="modal-content">
+            <h2>Quiz Summary</h2>
+            <div class="summary-grid">
+                <div>
+                    <span class="summary-label">Total Questions:</span>
+                    <span class="summary-value" id="summaryTotal">0</span>
+                </div>
+                <div>
+                    <span class="summary-label answered">Answered:</span>
+                    <span class="summary-value" id="summaryAnswered">0</span>
+                </div>
+                <div>
+                    <span class="summary-label not-answered">Not Answered:</span>
+                    <span class="summary-value" id="summaryNotAnswered">0</span>
+                </div>
+                <div>
+                    <span class="summary-label marked">Marked for Review:</span>
+                    <span class="summary-value" id="summaryMarked">0</span>
+                </div>
+            </div>
+            <div class="modal-buttons">
+                <button class="button modal-btn-back" id="modalGoBackButton">Go Back</button>
+                <button class="button modal-btn-submit" id="modalFinalSubmitButton">Submit Now</button>
+            </div>
+        </div>
+    </div>
+
+    <script src="https://www.gstatic.com/firebasejs/8.6.8/firebase-app.js"></script>
+    <script src="https://www.gstatic.com/firebasejs/8.6.8/firebase-database.js"></script>
+    
+    <script src="script.js"></script>
+</body>
+</html>
